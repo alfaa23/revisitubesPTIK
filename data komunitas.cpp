@@ -71,6 +71,30 @@ void tampilkanData() {
     getch(); // Menunggu sampai tombol ditekan
     system("cls");
 }
+void hapusData() {
+    int nomorHapus;
+    cout << "Hapus data ke-";
+    cin >> nomorHapus;
+
+    if (nomorHapus >= 1 && nomorHapus <= jumlahData) {
+        --nomorHapus;
+
+        for (int i = nomorHapus; i < jumlahData - 1; ++i) {
+            provinsi[i] = provinsi[i + 1];
+        }
+
+        --jumlahData;
+        system("cls");
+        cout << "\n\n\n\n\n\n\n\n\n++++++++++++++++++++++++++++++ Data ke-" << nomorHapus + 1 << " Terhapus ++++++++++++++++++++++++++++++";
+        getch();
+        system("cls");
+    } else {
+        system("cls");
+        cout << "Nomor data tidak valid.";
+        getch();
+        system("cls");
+    }
+}
 void editData() {
     int nomorEdit;
     cout << "Masukkan Nomor Data yang Akan Diedit : ";
@@ -106,8 +130,69 @@ void editData() {
         system("cls");
     }
 }
+int main() {
+    int pilihan;
+    char keluar;
+    cout << "\n============================= PROGRAM  DATA KOMUNITAS BERDASARKAN REGIONAL ========================================\n";
+    cout << "\n\t\t\t                    PROGRAM BY KELOMPOK 1\n\n";
+    cout << "\t\t\t                      ASSALAMU'ALAIKUM";
+    getch();
+    system("cls");
+
+    do {
+        cout << "\n======================================== PILIHAN MENU =====================================\n";
+        cout << "1. Masukkan data\n";
+        cout << "2. Hapus Data\n";
+        cout << "3. Lihat Data\n";
+        cout << "4. Edit Data\n";
+        cout << "5. Keluar\n\n";
+        cout << "Masukkan Pilihan : ";
+        cin >> pilihan;
+
+        switch (pilihan) {
+            case 1:
+                system("cls");
+                inputData();
+                break;
+            case 2:
+                system("cls");
+                hapusData();
+                break;
+            case 3:
+                tampilkanData();
+                break;
+            case 4:
+                editData();
+                break;
+            case 5:
+                system("cls");
+                cout << "\n\n\n\n\n\n\n\n";
+                cout << "   APAKAH ANDA YAKIN KELUAR DARI PROGRAM??\n\n";
+                cout << "   [Y]                     [N]                  \n";
+                cout << "\n   ";
+                cin >> keluar;
+
+                if (keluar == 'y' || keluar == 'Y') {
+                    system("cls");
+                    cout << "\n\n\n\n\n*********** PROGRAM SELESAI ***********";
+                } else if (keluar == 'n' || keluar == 'N') {
+                    system("cls");
+                }
+                break;
+            default:
+                system("cls");
+                cout << "Pilihan 1-5";
+                getch();
+                system("cls");
+                break;
+        }
+        cout << "\n\n\n\n\n\n\n\n";
+        cout << "\t\t\t   PROGRAM BY KELOMPOK 1\n\n";
+        cout << "\t\t\t      WASSALAMU'ALAIKUM";
+    } while (pilihan != 5);
 
   return 0;
 }
+
 
 
