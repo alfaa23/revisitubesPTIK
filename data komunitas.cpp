@@ -71,6 +71,42 @@ void tampilkanData() {
     getch(); // Menunggu sampai tombol ditekan
     system("cls");
 }
+void editData() {
+    int nomorEdit;
+    cout << "Masukkan Nomor Data yang Akan Diedit : ";
+    cin >> nomorEdit;
+
+    if (nomorEdit >= 1 && nomorEdit <= jumlahData) {
+        --nomorEdit;
+        cout << "nama provisi   : ";
+        cin >> provinsi[nomorEdit].nama_provinsi;
+        cout << "jumlah komunitas      : ";
+        cin >> provinsi[nomorEdit].jumlah_komunitas;
+        cout << "kepala keluarga    : ";
+        cin >> provinsi[nomorEdit].kepala_keluarga;
+        cout << "laki-laki            : ";
+        cin >> provinsi[nomorEdit].laki_laki;
+        cout << "perempuan    : ";
+        cin >> provinsi[nomorEdit].perempuan;
+        cout << "SD       : ";
+        cin >> provinsi[nomorEdit].SD;
+        cout << "SMP     : ";
+        cin >> provinsi[nomorEdit].SMP;
+        cout << "SMA     : ";
+        cin >> provinsi[nomorEdit].SMA;
+        cout << "perguruan tinggi    : ";
+        cin >> provinsi[nomorEdit].perguruan_tinggi;
+        
+
+        tampilkanData();
+    } else {
+        system("cls");
+        cout << "Nomor data tidak valid.";
+        getch();
+        system("cls");
+    }
+}
+
   return 0;
 }
 
